@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>AIM Trainer</title>
+    <link rel="stylesheet" href="public/css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>AIM Trainer</h1>
+    </header>
+
+    <main>
+
+        <div id="aimTrainer">
+
+            <header>
+                <p>Success: {{ round.shot }} - Missed : {{ round.miss }}</p>
+                <p>Timeleft: {{ round.countDown }}</p>
+            </header>
+
+            <main id="aimTrainer" @click="missShot">
+                <div id="target" class="target" @click="gabed"/>
+            </main>
+
+            <h2 v-if="!round.start">Shoot on Gabe to start</h2>
+            <button v-else="round.start" @click="reset">Restart</button>
+
+        </div>
+
+    </main>
+
+</body>
+
+<script type="text/javascript" src="public/frameworks/vuejs/vue.js"></script>
+<!-- <script type="text/javascript" src="public/frameworks/vuejs/vue.min.js"></script> -->
+
+<script type="module" src="public/js/main.js"></script>
+
+</html>

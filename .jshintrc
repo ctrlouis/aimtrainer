@@ -1,0 +1,9 @@
+{
+    "esversion": 6,
+    "globals": {
+        "document": false,
+        "fetch": false,
+        "$": false,
+        "vue": false
+    }
+}
