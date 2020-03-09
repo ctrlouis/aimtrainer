@@ -1,20 +1,20 @@
 <template>
-    <div>
-        <router-view></router-view>
+    <div id="startscreen">
+        <p>Train your A.I.M with the great Gabe.</p>
+        <router-link to="game"><button>Start</button></router-link>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'app',
-    data () {
+    data() {
         return {}
-    }
+    },
 }
 </script>
 
 <style lang="scss">
-#app {
+#startscreen {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
