@@ -1,0 +1,52 @@
+// roboto
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+// josephin sans
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+// nunito
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+
+// fun font
+@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap');
+
+$defaultFont: 'Roboto', sans-serif;
+$titleFont: 'Josefin Sans', 'Nunito', 'Roboto', sans-serif;
+$funFont: 'Luckiest Guy', 'Roboto', sans-serif;
+
+
+h1, h2, h3, h4, h5, h6 {
+    color: white;
+    font-family: $titleFont;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 4.5em;
+    text-align: center;
+}
+
+h2 {
+    font-size: 3em;
+}
+
+h3 {
+    font-size: 2em;
+}
+
+h2, h3 {
+    text-align: left;
+}
+
+p, ul, li {
+    color: rgb(30, 30, 30);
+    font-family: $defaultFont;
+    margin: 0;
+    padding: 0;
+}
+
+.txt-center {
+    text-align: center;
+}

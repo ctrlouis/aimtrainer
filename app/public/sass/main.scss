@@ -1,0 +1,291 @@
+@import 'mixins/nav.scss';
+@import 'modules/confs/screenBreakpoints.scss';
+@import 'modules/color.scss';
+@import 'modules/font.scss';
+@import 'modules/global.scss';
+@import 'modules/grid.scss';
+@import 'modules/progressbar.scss';
+@import 'libraries/animated.scss';
+@import 'libraries/legeoffrey.scss';
+
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    background-color: #fda37e;
+}
+
+header {
+    flex-shrink: 0;
+    z-index: 99;
+
+    .nav {
+        @include nav();
+        @include nav_color($primaryColor, $secondaryColor);
+        @include nav_font(1.5em);
+
+        .wiggle:hover {
+            animation-delay: 0s;
+        }
+    }
+}
+
+main {
+    flex-grow: 1;
+    overflow: auto;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+header {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+// section
+section {
+    padding: 1% 5%;
+    display: flex;
+    flex-direction: column;
+
+    & > div {
+        background-color: salmon;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        border-radius: 8px;
+        margin-bottom: 5%;
+        padding: 2%;
+    }
+
+    &:nth-of-type(2n+1) {
+        &>div {
+            // background-color: $secondaryColor;
+        }
+    }
+
+    &:nth-of-type(2n+2) {
+        &>div {
+            // background-color: $primaryColor;
+        }
+    }
+
+    p {
+        font-size: 1.25em;
+        margin-bottom: 1em;
+        font-weight: bolder;
+    }
+}
+
+.about-content {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+.exp-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+#logo-acrona {
+    background-color: white;
+    padding: 1%;
+}
+
+
+// on medium
+// screen
+@media screen and (min-width: $mediumScreen) {
+    section#experience, section#graduation {
+        background-color: salmon;
+        & > div {
+            width: 60%;
+            flex-direction: row;
+            align-items: left;
+
+            p, h3 {
+                text-align: left;
+            }
+        }
+        & > div:nth-of-type(2n+1) {
+            align-self: flex-start;
+        }
+        & > div:nth-of-type(2n+2) {
+            align-self: flex-end;
+        }
+        
+        a, img {
+            margin-right: 2%;
+        }
+    }
+
+    .about-content {
+        flex-direction: row;
+    }
+
+    .exp-content {
+        display: flex;
+		flex-direction: row;
+        align-items: center;
+        p {
+            width: 100%;
+        }
+    }
+}
+
+// CHART
+.triple-case-wrapper {
+    @include grid(3, 5%);
+}
+
+// chartiste override
+.ct-series-a .ct-bar {
+    /* Colour of your bars */
+    stroke: #4bacb8;
+    /* The width of your bars */
+    stroke-width: 20px;
+    /* Yes! Dashed bars! */
+    // stroke-dasharray: 20px;
+    /* Maybe you like round corners on your bars? */
+    // stroke-linecap: round;
+}
+ 
+.ct-bar {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+.ct-bar:hover {
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+// VLOG
+#portfolio {
+    h2 {
+        text-align: center;
+        margin-top: 2%;
+        &:before {
+            content: none;
+        }
+    }
+
+    #projets {
+        $padding: 4%;
+        @include grid(1, $padding);
+        padding: $padding;
+    }
+
+    .projet {
+        background-color: salmon;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        border-radius: 8px;
+        margin-bottom: 10%;
+        padding: 2%;
+        h3 {
+            text-align: center;
+            margin-bottom: 2%;
+        }
+        p {
+            text-align: justify;
+            margin-bottom: 1%;
+        }
+        span {
+            color: grey;
+            margin-bottom: 1%;
+        }
+        a {
+            text-decoration: none;
+        }
+        iframe {
+            border-style: none;
+            border-radius: 2px;
+            box-shadow: 0 7px 14px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+        }
+    }
+}
+
+@media screen and (min-width: $mediumScreen) {
+    #portfolio > #projets {
+        $padding: 4%;
+        @include grid(2, $padding);
+        padding: $padding;
+    }
+}
+@media screen and (min-width: $largeScreen) {
+    #portfolio > #projets {
+        $padding: 4%;
+        @include grid(3, $padding);
+        padding: $padding;
+    }
+}
+
+
+// VLOG
+#vlog {
+    display: flex;
+    align-items: center;
+    
+    h2 {
+        margin-top: 2%;
+        &:before {
+            content: none;
+        }
+    }
+
+    iframe {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+}
+
+
+// CONTACT
+#contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    h2 {
+        margin-top: 2%;
+        &:before {
+            content: none;
+        }
+    }
+
+    div {
+        width: 85%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        textarea {
+            height: 10em;
+        }
+    }
+}
+
+@media screen and (min-width: $smallScreen) {
+    #contact {
+        div {
+            width: 90%;
+        }
+    }
+}
+@media screen and (min-width: $mediumScreen) {
+    #contact {
+        div {
+            width: 50%;
+        }
+    }
+}
