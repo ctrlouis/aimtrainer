@@ -1,7 +1,7 @@
 <template>
     <div id="startscreen">
         <p>Train your A.I.M with the great Gabe.</p>
-        <router-link to="game"><button>Start</button></router-link>
+        <router-link to="game"><button type="button" class="nes-btn is-warning">Start</button></router-link>
     </div>
 </template>
 
@@ -21,23 +21,5 @@ export default {
     text-align: center;
     color: #2c3e50;
     margin-top: 60px;
-}
-
-h1, h2 {
-    font-weight: normal;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    display: inline-block;
-    margin: 0 10px;
-}
-
-a {
-    color: #42b983;
 }
 </style>
