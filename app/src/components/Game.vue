@@ -120,6 +120,8 @@ export default {
             this.target.pos.x = 50;
             this.target.pos.y = 50;
 
+            target.style.top = this.target.pos.x + "%";
+            target.style.left = this.target.pos.y + "%";
             target.style.width = this.target.size + "px";
             target.style.height = this.target.size + "px";
             target.style.backgroundSize = this.target.size + "px";
