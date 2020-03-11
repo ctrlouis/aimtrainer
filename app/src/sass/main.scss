@@ -41,16 +41,8 @@ footer {
     text-align: center;
 }
 
-#target {
-    position: relative;
-    /* initial position */
-    top: 50%;
-    left: 50%;
-    /* round */
-    width: $targetSize;
-    height: $targetSize;
-    background-image: url("../img/gabe.jpg");
-    background-size: $targetSize;
-    border-radius: 50%;
-    background-color: red;
+.blink {
+    animation-duration: 3s;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
 }

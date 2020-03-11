@@ -9,8 +9,8 @@
             <div id="target" class="target" @click="gabed"/>
         </div>
 
-        <h2 v-if="!round.start">Shoot on Gabe to start</h2>
-        <button v-else="round.start" @click="reset">Restart</button>
+        <h2 v-if="!round.start" class="animated flash blink">Shoot on Gabe to start</h2>
+        <button type="button" v-else="round.start" class="nes-btn is-error" @click="reset">Restart</button>
     </div>
 </template>
 
@@ -65,7 +65,8 @@ export default {
             this.resize();
         },
         missShot(event) {
-            if (!this.round.finish) {
+            if (this.partyInProgress) {
+                console.log(this.round.start);
                 this.round.miss++;
                 this.round.total++;
             }
@@ -109,6 +110,7 @@ export default {
             this.round.resizeCountOrigin = 1;
             this.round.resizeCount = 1;
             this.round.countDown = 30;
+            
             this.target.size = 60;
             this.target.pos.x = 50;
             this.target.pos.y = 50;
@@ -117,38 +119,33 @@ export default {
             target.style.height = this.target.size + "px";
             target.style.backgroundSize = this.target.size + "px";
         }
+    },
+
+    computed: {
+        partyInProgress() {
+            return this.round.start && !this.round.finish;
+        }
     }
 }
 </script>
 
 <style lang="scss">
-#aimTrainer {
-    height: 50vh;
-}
-// #game {
-//     font-family: 'Avenir', Helvetica, Arial, sans-serif;
-//     -webkit-font-smoothing: antialiased;
-//     -moz-osx-font-smoothing: grayscale;
-//     text-align: center;
-//     color: #2c3e50;
-//     margin-top: 60px;
-// }
-
-// h1, h2 {
-//     font-weight: normal;
-// }
-
-// ul {
-//     list-style-type: none;
-//     padding: 0;
-// }
-
-// li {
-//     display: inline-block;
-//     margin: 0 10px;
-// }
-
-// a {
-//     color: #42b983;
-// }
+    #aimTrainer {
+        height: 80vh;
+    }
+    
+    $targetSize: 60px;
+    #target {
+        position: relative;
+        /* initial position */
+        top: 50%;
+        left: 50%;
+        /* round */
+        width: $targetSize;
+        height: $targetSize;
+        background-image: url("../img/gabe.jpg");
+        background-size: $targetSize;
+        border-radius: 50%;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    }
 </style>
