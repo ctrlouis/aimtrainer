@@ -2,7 +2,7 @@
     <div id="game">
         <header>
             <p>Success: {{ round.shot }} - Missed : {{ round.miss }}</p>
-            <p>Timeleft: {{ round.countDown }}</p>
+            <p>Timeleft: {{ timeLeft }}</p>
         </header>
 
         <div id="aimTrainer" @click="missShot">
@@ -29,7 +29,9 @@ export default {
                 total: 0,
                 resizeCountOrigin: 1,
                 resizeCount: 1,
-                countDown: 30
+                duration: 30,
+                countDown: 30,
+                timer: null
             },
             target: {
                 name: "target",
@@ -52,11 +54,13 @@ export default {
             if (!this.round.finish) this.successShot();
         },
         runTimer() {
-            setTimeout(() => {
-                this.round.countDown--;
-                if (this.round.countDown <= 0) this.round.finish = true;
-                if (!this.round.finish) this.runTimer();
-            }, 1000);
+            this.round.timer = setInterval(() => {
+                this.round.countDown -= 0.01;
+                if (this.round.countDown <= 0) clearInterval(this.round.timer);
+            }, 10);
+        },
+        stopTimer() {
+            clearInterval(this.round.timer);
         },
         successShot() {
             this.round.shot++;
@@ -109,6 +113,7 @@ export default {
             this.round.total = 0;
             this.round.resizeCountOrigin = 1;
             this.round.resizeCount = 1;
+            this.stopTimer();
             this.round.countDown = 30;
             
             this.target.size = 60;
@@ -124,6 +129,9 @@ export default {
     computed: {
         partyInProgress() {
             return this.round.start && !this.round.finish;
+        },
+        timeLeft() {
+            return this.round.countDown.toFixed(2);
         }
     }
 }
