@@ -1,7 +1,7 @@
 <template>
     <div id="startscreen">
         <p>Train your A.I.M with the great Gabe.</p>
-        <router-link to="game"><button type="button" class="nes-btn is-warning">Start</button></router-link>
+        <router-link to="game"><button type="button" class="nes-btn is-warning"><span class="animated flash blink-late">Start</span></button></router-link>
     </div>
 </template>
 
