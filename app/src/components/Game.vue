@@ -146,7 +146,8 @@ export default {
 
 <style lang="scss">
     #aimTrainer {
-        width: 99vw;
+        background-color: orange;
+        width: 100vw;
         height: 80vh;
         cursor: crosshair;
         text-align: center;
