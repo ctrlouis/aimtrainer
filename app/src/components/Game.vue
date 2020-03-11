@@ -5,7 +5,7 @@
             <p>Timeleft: {{ timeLeft }}</p>
         </header>
 
-        <div id="aimTrainer" @click="missShot">
+        <div id="aimTrainer" @click="missShot" :style="shootingZone">
             <div id="target" class="target" @click="gabed"/>
         </div>
 
@@ -132,6 +132,11 @@ export default {
         },
         timeLeft() {
             return this.round.countDown.toFixed(2);
+        },
+        shootingZone() {
+            return {
+                padding: `0 ${this.target.size}px ${this.target.size}px 0`
+            }
         }
     }
 }
@@ -139,7 +144,10 @@ export default {
 
 <style lang="scss">
     #aimTrainer {
+        width: 99vw;
         height: 80vh;
+        cursor: crosshair;
+        text-align: center;
     }
     
     $targetSize: 60px;
