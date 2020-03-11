@@ -1,11 +1,11 @@
 version: "3"
 
 services:
-  node:
-    image: node
-    ports:
-      - "81:8080"
-    volumes:
-      - ./app:/app/aimtrainer
-    working_dir: /app/aimtrainer
-    command: bash -c "npm i && npm start"
+	node:
+		image: node
+		ports:
+			- "81:8080"
+		volumes:
+			- ./app:/app/aimtrainer
+		working_dir: /app/aimtrainer
+		command: bash -c "npm install && npm start"
