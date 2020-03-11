@@ -2,7 +2,7 @@
     <div id="game">
         <header>
             <p>Success: {{ round.shot }} - Missed : {{ round.miss }}</p>
-            <p>Timeleft: {{ timeLeft }}</p>
+            <p>Timeleft: {{ timeLeft }}s</p>
         </header>
 
         <div id="aimTrainer" @click="missShot" :style="shootingZone">
