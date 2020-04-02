@@ -61,6 +61,7 @@ export default {
         },
         stopTimer() {
             clearInterval(this.round.timer);
+            this.round.countDown = 0.00;
         },
         successShot() {
             this.round.shot++;
@@ -166,5 +167,9 @@ export default {
         background-size: $targetSize;
         border-radius: 50%;
         box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    }
+
+    h2 {
+        text-align: center;
     }
 </style>
